@@ -33,6 +33,7 @@
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "false",
+        "APP_URL": "https://portofolio-silva-oktaria.vercel.app",
         "LOG_CHANNEL": "stderr",
         "LOG_LEVEL": "error",
         "SESSION_DRIVER": "cookie",
