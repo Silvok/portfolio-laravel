@@ -854,7 +854,7 @@ h3 {
     display: block;
     object-fit: cover;
     object-position: center 78%;
-    filter: grayscale(1) contrast(1.05);
+    filter: saturate(1.06) contrast(1.02);
 }
 
 .role-float {
@@ -1041,7 +1041,7 @@ h3 {
     display: block;
     object-fit: cover;
     object-position: center 38%;
-    filter: grayscale(1) contrast(1.04);
+    filter: saturate(1.06) contrast(1.02);
 }
 
 .orbit-stat {
