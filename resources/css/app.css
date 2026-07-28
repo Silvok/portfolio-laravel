@@ -3078,13 +3078,49 @@ h3 {
 
 .js .section-observe {
     opacity: 0;
-    transform: translateY(26px);
-    transition: opacity 620ms ease, transform 620ms ease;
+    filter: blur(7px);
+    transform: translateY(34px);
+    transition:
+        opacity 760ms cubic-bezier(0.2, 0.7, 0.2, 1),
+        filter 760ms cubic-bezier(0.2, 0.7, 0.2, 1),
+        transform 760ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 .js .section-observe.is-visible {
     opacity: 1;
+    filter: none;
     transform: none;
+}
+
+.js .reveal-item {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translate3d(0, 34px, 0);
+    transition:
+        opacity 720ms cubic-bezier(0.2, 0.7, 0.2, 1),
+        filter 720ms cubic-bezier(0.2, 0.7, 0.2, 1),
+        transform 720ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition-delay: calc(var(--reveal-index, 0) * 70ms);
+    will-change: opacity, filter, transform;
+}
+
+.js .hero-visual > .reveal-item,
+.js .about-media.reveal-item,
+.js .contact-grid > .reveal-item:nth-child(even) {
+    transform: translate3d(34px, 22px, 0);
+}
+
+.js .hero-copy > .reveal-item,
+.js .about-content > .reveal-item,
+.js .experience-intro > .reveal-item,
+.js .leadership-intro > .reveal-item {
+    transform: translate3d(-26px, 26px, 0);
+}
+
+.js .section-observe.is-visible .reveal-item {
+    opacity: 1;
+    filter: none;
+    transform: translate3d(0, 0, 0);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3103,6 +3139,13 @@ h3 {
 
     .js .section-observe {
         opacity: 1;
+        filter: none;
+        transform: none;
+    }
+
+    .js .reveal-item {
+        opacity: 1;
+        filter: none;
         transform: none;
     }
 }

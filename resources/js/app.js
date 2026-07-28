@@ -3,10 +3,42 @@ const menuToggle = document.querySelector('[data-menu-toggle]');
 const navLinks = Array.from(document.querySelectorAll('[data-nav-link]'));
 const scrollProgress = document.querySelector('[data-scroll-progress]');
 const sections = Array.from(document.querySelectorAll('.section-observe[id]'));
+const revealSelectors = [
+    ':scope .hero-copy > *',
+    ':scope .hero-visual > *',
+    ':scope .about-content > *',
+    ':scope .about-media',
+    ':scope .orbit-stat',
+    ':scope .showcase-heading > *',
+    ':scope .showcase-tab',
+    ':scope .showcase-project-card',
+    ':scope .showcase-cert-card',
+    ':scope .tech-card',
+    ':scope .experience-intro > *',
+    ':scope .timeline-card',
+    ':scope .leadership-intro > *',
+    ':scope .leadership-card',
+    ':scope .contact-grid > *',
+];
 
 document.documentElement.classList.add('js');
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const prepareRevealItems = () => {
+    sections.forEach((section) => {
+        const revealItems = new Set();
+
+        revealSelectors.forEach((selector) => {
+            section.querySelectorAll(selector).forEach((item) => revealItems.add(item));
+        });
+
+        Array.from(revealItems).forEach((item, index) => {
+            item.classList.add('reveal-item');
+            item.style.setProperty('--reveal-index', String(Math.min(index, 10)));
+        });
+    });
+};
 
 const setMenuState = (isOpen) => {
     if (!header || !menuToggle) {
@@ -64,6 +96,8 @@ document.addEventListener('keydown', (event) => {
         setMenuState(false);
     }
 });
+
+prepareRevealItems();
 
 if (sections.length > 0 && !prefersReducedMotion) {
     const revealObserver = new IntersectionObserver(
