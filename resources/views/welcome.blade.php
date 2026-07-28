@@ -404,7 +404,7 @@
                         <article class="orbit-stat orbit-stat-right">
                             <span aria-hidden="true">&lt;/&gt;</span>
                             <div>
-                                <strong>6+</strong>
+                                <strong>7+</strong>
                                 <p>PROJECT AREAS</p>
                             </div>
                         </article>
