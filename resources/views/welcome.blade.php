@@ -18,7 +18,7 @@
         @php
             $profileImage = asset('documents/silva-oktaria-putri-photo.jpeg');
             $aboutImage = asset('documents/silva-oktaria-putri-about.jpeg');
-            $cvUrl = asset('documents/silva-oktaria-putri-resume.pdf');
+            $cvUrl = asset('documents/silva-oktaria-putri-cv-2026.pdf');
 
             $navItems = [
                 ['label' => 'Home', 'href' => '#home'],
